@@ -1,6 +1,6 @@
 {
   "properties": {
-    "description": "Template for hosting .Net based Web App with an SQL database a data store.",
+    "description": "Template for hosting .Net based Web App with a SQL database as data store.",
     "targetScope": "subscription",
     "parameters": {
       "rgName": {
