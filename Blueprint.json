@@ -2,6 +2,12 @@
   "properties": {
     "targetScope": "subscription",
     "parameters": {
+      "rgName": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Resource Group Name"
+        }
+      },
       "appName": {
         "type": "string",
         "metadata": {
@@ -114,7 +120,8 @@
     "resourceGroups": {
       "ResourceGroup": {
         "location": "westeurope",
-        "dependsOn": []
+        "dependsOn": [],
+        "name": "[parameters('rgName')]"
       }
     }
   }
