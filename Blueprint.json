@@ -1,0 +1,121 @@
+{
+  "properties": {
+    "targetScope": "subscription",
+    "parameters": {
+      "appName": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Application Name"
+        }
+      },
+      "environment": {
+        "type": "string",
+        "metadata": {
+          "displayName": "Environment"
+        },
+        "allowedValues": [
+          "dev",
+          "prod",
+          "qa"
+        ]
+      },
+      "locationShort": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 3,
+        "metadata": {
+          "description": "Two to three character value that identifies the region into which the resources are deployed. Should map to the resource group's location."
+        },
+        "defaultValue": "weu"
+      },
+      "sqlServerLogin": {
+        "type": "string",
+        "metadata": {
+          "displayName": "SQLServer admin user name"
+        },
+        "defaultValue": "sqladmin"
+      },
+      "sqlServerPassword": {
+        "type": "secureString",
+        "metadata": {
+          "displayName": "SQLServer admin user password"
+        },
+        "defaultValue": {
+          "reference": {
+            "keyVault": {
+              "id": "/subscriptions/7a7779d7-2238-4a8a-947b-e35c5c46abfa/resourceGroups/secrets-test-rg/providers/Microsoft.KeyVault/vaults/samplewebapp-test-kv"
+            },
+            "secretName": "administratorLoginPassword"
+          }
+        }
+      },
+      "sqlServerCollation": {
+        "type": "string",
+        "metadata": {
+          "displayName": "SQL Server collation"
+        },
+        "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+      },
+      "sqlDbName": {
+        "type": "string",
+        "metadata": {
+          "displayName": "SQL database name"
+        },
+        "allowedValues": []
+      },
+      "sqlDbSize": {
+        "type": "string",
+        "metadata": {
+          "displayName": "SQL databse size in bytes"
+        },
+        "defaultValue": "1073741824",
+        "allowedValues": []
+      },
+      "sqlDbtier": {
+        "type": "string",
+        "metadata": {
+          "displayName": "The performance level for Azure SQL database"
+        },
+        "defaultValue": "S0",
+        "allowedValues": [
+          "S0",
+          "S1",
+          "S2",
+          "P1",
+          "P2",
+          "P3"
+        ]
+      },
+      "webAppSkuName": {
+        "type": "string",
+        "metadata": {
+          "displayName": "WebApp instance size",
+          "description": "Describes plan's pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
+        },
+        "defaultValue": "S1",
+        "allowedValues": [
+          "S1",
+          "S2",
+          "S3",
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ]
+      },
+      "webAppSkuCapacity": {
+        "type": "int",
+        "metadata": {
+          "displayName": "WebApp instance count",
+        },
+        "defaultValue": 1
+      }
+    },
+    "resourceGroups": {
+      "ResourceGroup": {
+        "location": "westeurope",
+        "dependsOn": []
+      }
+    }
+  }
+}
